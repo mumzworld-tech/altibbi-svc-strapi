@@ -44,10 +44,8 @@ async function setPublicPermissions(newPermissions) {
   });
 
   // Create the new permissions and link them to the public role
-  const allPermissionsToCreate = [];
-  Object.keys(newPermissions).map((controller) => {
-    const actions = newPermissions[controller];
-    const permissionsToCreate = actions.map((action) => {
+  const PERMISSIONS_TO_CREATE = Object.entries(newPermissions).flatMap(([controller, actions]) => {
+    return actions.map((action) => {
       return strapi.query('plugin::users-permissions.permission').create({
         data: {
           action: `api::${controller}.${controller}.${action}`,
@@ -55,9 +53,9 @@ async function setPublicPermissions(newPermissions) {
         },
       });
     });
-    allPermissionsToCreate.push(...permissionsToCreate);
   });
-  await Promise.all(allPermissionsToCreate);
+
+  await Promise.all(PERMISSIONS_TO_CREATE);
 }
 
 function getFileSizeInBytes(filePath) {
