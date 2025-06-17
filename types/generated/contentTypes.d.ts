@@ -398,6 +398,7 @@ export interface ApiBookingBooking extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     name: Schema.Attribute.String;
+    paymentId: Schema.Attribute.String;
     phoneNumber: Schema.Attribute.String;
     price: Schema.Attribute.String;
     productDetails: Schema.Attribute.String;
