@@ -40,6 +40,9 @@
     },
     "paymentId": {
       "type": "string"
+    },
+    "paymentStatus": {
+      "type": "string"
     }
   }
 }
