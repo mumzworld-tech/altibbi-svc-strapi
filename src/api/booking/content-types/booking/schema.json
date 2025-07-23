@@ -43,6 +43,9 @@
     },
     "paymentStatus": {
       "type": "string"
+    },
+    "responseId": {
+      "type": "string"
     }
   }
 }
