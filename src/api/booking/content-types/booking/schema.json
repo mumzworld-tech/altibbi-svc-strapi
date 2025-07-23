@@ -41,11 +41,18 @@
     "paymentId": {
       "type": "string"
     },
-    "paymentStatus": {
-      "type": "string"
-    },
     "responseId": {
       "type": "string"
+    },
+    "paymentStatus": {
+      "type": "enumeration",
+      "default": "pending",
+      "enum": [
+        "pending",
+        "paid",
+        "failed",
+        "refunded"
+      ]
     }
   }
 }
