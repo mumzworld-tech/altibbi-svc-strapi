@@ -43,6 +43,13 @@
     },
     "paymentStatus": {
       "type": "string"
+    },
+    "serviceType": {
+      "type": "enumeration",
+      "enum": [
+        "Mental Health consultation",
+        "Nutritionist consultation"
+      ]
     }
   }
 }
