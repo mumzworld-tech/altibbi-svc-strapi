@@ -41,7 +41,7 @@
     "paymentId": {
       "type": "string"
     },
-    "paymentStatus": {
+    "responseId": {
       "type": "string"
     },
     "serviceType": {
@@ -49,6 +49,16 @@
       "enum": [
         "Mental Health consultation",
         "Nutritionist consultation"
+      ]
+    },
+    "paymentStatus": {
+      "type": "enumeration",
+      "default": "pending",
+      "enum": [
+        "pending",
+        "paid",
+        "failed",
+        "refunded"
       ]
     }
   }
