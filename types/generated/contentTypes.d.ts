@@ -407,10 +407,10 @@ export interface ApiBookingBooking extends Struct.CollectionTypeSchema {
     price: Schema.Attribute.String;
     productDetails: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
+    responseId: Schema.Attribute.String;
     serviceType: Schema.Attribute.Enumeration<
       ['Mental Health consultation', 'Nutritionist consultation']
     >;
-    responseId: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
