@@ -17,22 +17,28 @@ module.exports = createCoreController("api::booking.booking", ({ strapi }) => ({
           );
         }
 
+        const prefix = "FH-";
+
         // Using findOne in Strapi v5
         const lastOrder = await strapi.entityService.findMany(
           "api::booking.booking",
           {
-            sort: { id: "desc" },
-            fields: ["orderId"],
+            where: {
+              orderId: {
+                $startsWith: prefix,
+              },
+            },
+            sort: { orderId: "desc" },
             limit: 1,
           }
         );
 
         let orderId;
-        if (lastOrder.length > 0 && lastOrder[0].orderId?.startsWith("FH-")) {
+        if (lastOrder.length > 0 && lastOrder[0].orderId?.startsWith(prefix)) {
           const lastOrderId = lastOrder[0].orderId.split("-")[1];
-          orderId = `FH-${parseInt(lastOrderId) + 1}`;
+          orderId = `${prefix}${parseInt(lastOrderId) + 1}`;
         } else {
-          orderId = `FH-915100`;
+          orderId = `${prefix}915100`;
         }
 
         // inject relation before calling super
