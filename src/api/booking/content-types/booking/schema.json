@@ -60,6 +60,10 @@
         "failed",
         "refunded"
       ]
+    },
+    "orderId": {
+      "type": "string",
+      "unique": true
     }
   }
 }

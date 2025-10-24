@@ -398,6 +398,7 @@ export interface ApiBookingBooking extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     name: Schema.Attribute.String;
+    orderId: Schema.Attribute.String & Schema.Attribute.Unique;
     paymentId: Schema.Attribute.String;
     paymentStatus: Schema.Attribute.Enumeration<
       ['pending', 'paid', 'failed', 'refunded']
